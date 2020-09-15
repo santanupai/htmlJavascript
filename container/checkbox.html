@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 14px;
+        }
+        
+        .checkbox {
+            display: inline-block;
+            font-size: 18px;
+        }
+        
+        input[type="checkbox"]:hover {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 14px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="checkbox">
+            <label for="HTML news">Yes</label>
+            <input type="checkbox" id="html_news" value="html-news" name="user-age">
+            <span></span>
+        </div>
+        <div class="checkbox">
+            <label for="HTML news">No</label>
+            <input type="checkbox" id="html_news" value="html-news" name="user-age" disabled>
+            <span></span>
+        </div>
+    </div>
+
+</body>
+
+</html>

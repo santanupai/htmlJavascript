@@ -1,0 +1,99 @@
+*{
+    margin:0; padding:0;
+}
+//this is a variable ($colorwhite), inside this variable u can store any value, i am storing color white,
+//and i am using this variable in .menu li a hover.
+$colorwhite:#fff;
+$arthead:#C70039;
+
+header{
+    color:green;
+}
+
+.menu{
+    background-color: slategray;
+}
+
+.menu li{
+    display: inline-block;
+    margin: 2px;
+    padding: 5px;
+}
+
+//.menu li a{
+    // color:silver;
+    // text-decoration: none;
+    // font-size: 15px;
+    // transition-property: font-size;
+    // transition-duration: 0.2s;
+//}
+
+// .menu li:nth-child(even) a{
+//     color:green;
+//     display: inline;
+// }
+
+
+.menu li a:hover{
+    color:$colorwhite;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.divstyle{
+    width: 20%;
+    border:1px solid #2f2f2f;
+    flex-direction: column;
+}
+
+//mixin is the way to reduce code redundancy no need to write same style again and again, 
+//create it one time and usethis is css mixin example, syntax is @mixin mixinname, 
+//and when u apply it use @include mixinname
+
+@mixin pstyle{
+    color:orange;
+    font-size:15px;
+    font-style:italic
+}
+
+.p1 {
+    @include pstyle;
+    text-decoration:underline;
+}
+
+.p2{
+    @include pstyle;
+    border:1px solid gray;
+}
+
+//this is nesting example, inside a parent class u can write all it's children class and it's related style
+//here the "&" sign refers the class it-slef, no need to repeat the class.
+
+.columndiv{
+    @include pstyle;
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 1px dotted yellow;
+    &::first-letter{
+        font-size: 20px;
+        color:green;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &::first-letter:hover{
+        transition: transform 2s;
+        transform: rotate(180deg);
+        cursor: pointer;
+    }
+}
+
+// #data:nth-child(even){
+//     background-color: slategray;
+// }
+
+table, thead, th{
+    color:#C70039
+    }
+table, tbody, td{
+        color: green;
+    }

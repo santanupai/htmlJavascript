@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-decoration: underline;">Javascript Object Example</h2><br/>
+    <p>Car Object</p>
+    <br/>
+    <span id="name">Car Name is :</span><br/>
+    <span id="model"></span><br/>
+    <span id="speed"></span><br/>
+    <span id="cardetails"></span>
+</body>
+<script type="text/javascript">
+    //now i have htis car object
+
+    var car = {
+        name: "Tayota",
+        model: "Tayota-100",
+        highestspeed: 500,
+
+        getCarDetail: function() {
+            return car.name + " " + car.model + " " + car.highestspeed
+        }
+    }
+
+
+
+    //class example
+
+    class mycar {
+        constructor(name, model) {
+            this.name = name, this.model = model;
+        }
+        getcarDetails(arg) {
+            return "Car name is : " + this.name + " and Car Model is : " + this.model + arg;
+        }
+    }
+
+    //new isnatance of mycar
+    supercar = new mycar("Tayota", "T100");
+    console.log(supercar.getcarDetails("@TyRegisterd"));
+
+    // var mycar = new car();
+    // console.log(mycar.name);
+
+    var nam = "Car Name is : " + car.name;
+    var model = "Card Model is : " + car.model;
+    var speed = "Car Speed is : " + car.highestspeed;
+    var show = car.getCarDetail();
+
+    document.getElementById("name").innerHTML = nam;
+    document.getElementById("model").innerHTML = model;
+    document.getElementById("speed").innerHTML = speed;
+    document.getElementById("cardetails").innerHTML = show;
+</script>
+
+</html>

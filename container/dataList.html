@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop through the json file and fetch data</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const dataList = {
+            "questions": [{
+                "answers": [{
+                    "answers": "Answer-1",
+                    "value": 25
+                }, {
+                    "answers": "Answer-2",
+                    "value": 35
+                }, {
+                    "answers": "Answer-3",
+                    "value": 45
+                }, {
+                    "answers": "Answer-4",
+                    "value": 55
+                }]
+            }, {
+                "answers": [{
+                    "answers": "Answer-5",
+                    "value": 65
+                }, {
+                    "answers": "Answer-6",
+                    "value": 75
+                }, {
+                    "answers": "Answer-7",
+                    "value": 85
+                }, {
+                    "answers": "Answer-8",
+                    "value": 95
+                }]
+            }]
+        }
+        for (let i = 0; i < dataList.questions.length; i++) {
+            var list = dataList.questions[i];
+            console.log(list);
+            for (let j = 0; j < list.answers.length; j++) {
+                document.write('<div style="color:green;">' + '<b>' + j + 1 + '</b>' + ' answers are : ' + list.answers[j].answers + ' values are : ' + list.answers[j].value + '</div><br>');
+                console.log('<ol><li>answers are = ' + list.answers[j].answers + ', values are = ' + list.answers[j].value + '</li></ol>');
+            }
+        }
+    </script>
+</body>
+
+</html>

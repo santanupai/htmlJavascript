@@ -1,0 +1,74 @@
+/* line 1, E:/HTML5/js/scss/main.scss */
+* {
+  margin: 0;
+  padding: 0; }
+
+/* line 9, E:/HTML5/js/scss/main.scss */
+header {
+  color: green; }
+
+/* line 13, E:/HTML5/js/scss/main.scss */
+.menu {
+  background-color: slategray; }
+
+/* line 17, E:/HTML5/js/scss/main.scss */
+.menu li {
+  display: inline-block;
+  margin: 2px;
+  padding: 5px; }
+
+/* line 37, E:/HTML5/js/scss/main.scss */
+.menu li a:hover {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px; }
+
+/* line 43, E:/HTML5/js/scss/main.scss */
+.divstyle {
+  width: 20%;
+  border: 1px solid #2f2f2f;
+  flex-direction: column; }
+
+/* line 59, E:/HTML5/js/scss/main.scss */
+.p1 {
+  color: orange;
+  font-size: 15px;
+  font-style: italic;
+  text-decoration: underline; }
+
+/* line 64, E:/HTML5/js/scss/main.scss */
+.p2 {
+  color: orange;
+  font-size: 15px;
+  font-style: italic;
+  border: 1px solid gray; }
+
+/* line 72, E:/HTML5/js/scss/main.scss */
+.columndiv {
+  color: orange;
+  font-size: 15px;
+  font-style: italic;
+  column-count: 3;
+  column-gap: 20px;
+  column-rule: 1px dotted yellow; }
+  /* line 77, E:/HTML5/js/scss/main.scss */
+  .columndiv::first-letter {
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    text-transform: uppercase; }
+  /* line 83, E:/HTML5/js/scss/main.scss */
+  .columndiv::first-letter:hover {
+    transition: transform 2s;
+    transform: rotate(180deg);
+    cursor: pointer; }
+
+/* line 94, E:/HTML5/js/scss/main.scss */
+table, thead, th {
+  color: #C70039; }
+
+/* line 97, E:/HTML5/js/scss/main.scss */
+table, tbody, td {
+  color: green; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree View</title>
+    <style>
+        ul.tree,
+        ul.tree ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul.tree ul {
+            padding: 0 10px;
+        }
+        
+        ul.tree li {
+            padding: 0 7px;
+            margin: 0;
+            color: #369;
+            font-weight: bold;
+            text-transform: capitalize;
+            border-left: 1px solid #ddd;
+        }
+        
+        ul.tree li:last-child {
+            border-left: none;
+        }
+        
+        ul.tree li::before {
+            position: relative;
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 1em;
+            top: -0.3em;
+            border-bottom: 1px solid #ddd;
+            left: -7px;
+            color: #fff;
+        }
+        
+        ul.tree li:last-child::before {
+            border-left: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="tree">
+        <li>Animal
+            <ul>
+                <li>Birds</li>
+                <li>Mammals
+                    <ul>
+                        <li>Elephants</li>
+                        <li class="last">Mouse</li>
+                    </ul>
+                </li>
+                <li class="last">Reptiles</li>
+            </ul>
+        </li>
+        <li>Plants
+            <ul>
+                <li>Flower
+                    <ul>
+                        <li>Rose</li>
+                        <li>Tulip</li>
+                    </ul>
+                </li>
+                <li>Tree</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

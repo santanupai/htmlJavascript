@@ -1,0 +1,58 @@
+[
+    {
+        "sl": "1",
+        "name":"Kishore Kumar",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "2",
+        "name":"Manna Dey",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "3",
+        "name":"Md. Rafi",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "4",
+        "name":"R.D. Barman",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "5",
+        "name":"Sonu Nigam",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "6",
+        "name":"Kumar Sanu",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "7",
+        "name":"Shaan",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    },
+    {
+        "sl": "8",
+        "name":"Arijit Sing",
+        "group":"singer",
+        "country":"india",
+        "rank":"4.5"
+    }
+]

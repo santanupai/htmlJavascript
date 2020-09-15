@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <!-- <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #can{
+            border: 1px solid #000000;
+            width: 50%;
+            height: 400px;
+            margin: 0 auto;
+            position: absolute;
+            left: 23%;
+        }
+        .div1{
+            width: 33%;
+            height: 200px;
+            margin: 1px;
+            border:1px solid #000000;
+            padding: 2px 2px 2px 2px;
+            background-color: darkgray;
+            box-sizing: border-box;
+            /*  display: block; */
+            /* flex-direction: column; */
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <section style="width: 100%;">
+        <canvas id="can">
+            1234
+        </canvas>
+        <!-- <div class="container">
+            <div class="div1">
+                aafa
+            </div>
+            <div class="div1">
+                aa
+            </div>
+            <div class="div1">
+                aaf
+            </div>
+        </div>
+        <p>kgkgkgk</p> -->
+    </section>
+    <script>
+        
+        var can = document.getElementById("can");
+        var ctx = can.getContext('2d');
+        //ctx.beginPath();
+        ctx.moveTo(10,40);
+        ctx.lineTo(200,40);
+        ctx.lineTo(200,140);
+        // ctx.lineTo(10,140);
+        // ctx.fiilStyle ="red";
+        // ctx.lineTo(10,40);
+        // ctx.fiilStyle = "red";
+        // ctx.fiilStyle ="#c3c3c3";
+        ctx.stroke();
+        // ctx.arc();
+        // ctx.moveTo(100,100);
+        // ctx.lineTo(200,200);
+        // ctx.beginPath();
+        // ctx.arc(200, 200, 30, 0, Math.PI * 2, false);
+        // ctx.strokeStyle = 'blue';
+        // ctx.stroke();
+        ctx.fillStyle = 'green';
+        ctx.fillRect(80, 40, 100, 60);
+        ctx.fillStyle = 'red';
+        ctx.fillRect(20, 20, 100, 60);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50, 60, 100, 60);
+        
+
+    </script>
+</body>
+</html>

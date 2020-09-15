@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../js/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <section id="artist_group">
+            <div class="container mt-4">
+                <article>
+                    <span>Artist List</span>
+                </article>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sl. No.</th>
+                            <th>Artist Name</th>
+                            <th>Artist Group</th>
+                            <th>Artist Countrt</th>
+                            <th>Artist Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="artist">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
+<script>
+    let artistList = [];
+    fetch("../js/artist.json").then(
+        res=>{
+            res.json().then(
+                function(data){
+                    data.forEach(
+                        function(obj){
+                            artistList.push(`<tr>
+                            <td>${obj.sl}</td>
+                            <td>${obj.name}</td>
+                            <td>${obj.group}</td>
+                            <td>${obj.country}</td>
+                            <td>${obj.rank}</td>
+                            </tr>`);
+                            document.getElementById("artist").innerHTML = artistList;
+                        }
+                    )
+                }
+            )
+        }
+    )
+</script>

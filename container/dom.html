@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/domcss.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main">
+        <h1 id="h-1" class="mystyle">Dom Mainpulation</h1>
+        <input type="text" id="txt1" class="mytxt" /><br />
+        <div class="lorem">
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, cum cumque tempora perferendis aliquid
+                sunt
+                adipisci doloremque reiciendis! Ab dolorum, praesentium unde harum placeat eum dolor odit beatae eos
+                dolorem?
+            </span>
+            <button class="btn">Check</button>
+            <ul>
+                <li class="menu">List 1</li>
+                <li class="menu">List 2</li>
+                <li class="menu">List 3</li>
+                <li class="menu">List 4</li>
+            </ul>
+            <div id="mydiv"></div>
+        </div>
+    </div>
+    <script>
+        var mydiv = document.querySelector('#mydiv');
+        var newspan = document.createElement('span');
+        mydiv.appendChild(newspan);
+        newspan.textContent = "New created span";
+        newspan = document.createAttribute('class');
+        newspan.className = "myspan";
+
+        var child = document.querySelector('.lorem');
+        child.parentNode.style.padding = "20px";
+        child.parentNode.style.backgroundColor = "silver";
+        child.parentNode.style.display = "flex";
+        child.parentNode.style.justifyContent = "center";
+        child.parentNode.style.flexDirection = "column";
+        child.parentNode.style.alignItems = "center";
+        child.parentNode.style.textAlign = "justify";
+
+        var h = document.querySelector('.mystyle').addEventListener("click", function() {
+            h.style.color = "yellow";
+        });
+        var s = document.querySelector('.btn');
+        var txt = document.querySelector('.mytxt');
+        // h1value = h.textContent;
+        // h.textContent = h1value + "* 2";
+        // h.style.color = "#000";
+        // h.style.textDecoration = "underline"
+
+        // s.addEventListener("click", function(){
+        //     h.classList.toggle ("mystyle");
+        //     var sp = document.querySelector('.lorem');
+        //     sp.style.color = "green";
+        //     alert(sp.textContent);
+        // })
+        s.addEventListener("focus", function() {
+            // txt1.value = "Textbox";
+            txt.style.color = "green"
+                // txt1.style.backgroundColor = "yellow"
+            txt.focus();
+            fun();
+        })
+
+        txt.addEventListener("keypress", function(e) {
+            var alpha = e.keyCode;
+            var a = String.fromCharCode(alpha);
+            alert('Key : ' + e.key + ' ' + 'Key Code ' + e.keyCode + ' ' + a);
+
+        })
+
+        const fun = () => {
+            return myFunction(fun1);
+            fun1();
+        }
+        var mlist = document.querySelectorAll('.menu:last-child');
+        for (let i = 0; i < mlist.length; i++) {
+            mlist[i].style.color = "orange";
+        }
+        // mlist.style.color = "orange";
+        // mlist.innerText = "List one edited"
+        console.log(mlist);
+    </script>
+</body>
+
+</html>

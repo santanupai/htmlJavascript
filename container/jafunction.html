@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--here i am reversing a string and checking is this string is palindrome or not.-->
+    <div style="width: 300px; margin: 1%; float: left;">
+        <span>Palindrome or not</span><br/><br/>
+        <input type="text" id="txtinput"><br/><br/>
+        <input type="button" id="checkPalindrome" value="Check Palindrome/Reverse">
+        <br/><br/>
+        <table>
+            <tr>
+                <th>Palindrome</th>
+                <th>Reverse</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="palindrome"></p>
+                </td>
+                <td>
+                    <p id="reverse"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 200px; margin: 5%;">
+        <br/><br/>
+        <span>Sorting</span><br/>
+        <pre>const array = [2,4,3,7,8,9,1,5,6,0]; </pre><br/><br/>
+        <table>
+            <tr>
+                <th>Sort by methode</th>
+                <th>Sort by loop</th>
+            </tr>
+            <tr>
+                <td>
+                    <p id="sortbymethode"></p>
+                </td>
+                <td>
+                    <p id="sortbyloop"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="duplicate">
+        <br/><br/>
+        <span>Duplicate</span>
+        <pre>const array = [4,2,1,5,4,3,6,8,5,7,9];</pre>
+
+    </div>
+
+    <script>
+        document.getElementById("checkPalindrome").addEventListener("click", checkPalindrome);
+
+        function checkPalindrome() {
+            var reversename = "";
+            var txtvalue = document.getElementById("txtinput").value;
+            //loop from last of the string, thats why it start iterate from last
+            for (let i = txtvalue.length - 1; i >= 0; i--) {
+                reversename += txtvalue[i];
+            } //injecting the value in reverse div
+            if (txtvalue === reversename) {
+                var palindrome = "Palindrome"
+            } else {
+                palindrome = "Not a Palindrome"
+            }
+            document.querySelector("#palindrome").innerHTML = palindrome;
+            document.querySelector("#reverse").innerHTML = reversename;
+        }
+
+        const arr = [2, 4, 3, 7, 8, 9, 1, 5, 6, 0];
+
+        const arraySort = arr.sort((a, b) => a - b);
+        document.getElementById("sortbymethode").innerHTML = arraySort;
+        let temp = "";
+
+        function sortArray() {
+            for (let i = arr.length; i > 0; i--) {
+                for (let j = 0; j < i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+        document.getElementById("sortbyloop").innerHTML = arr;
+        //console.log(arr);
+
+        // const ardup = [4, 2, 1, 5, 4, 3, 6, 8, 5, 7, 9];
+        // //console.log(ardup);
+        // let duplicate = [];
+        // let temparr;
+        // for (let i = 0; i < ardup.length; i++) {
+        //     temparr = arr[i];
+        //     for (let j = i + 1; j < ardup.length; j++) {
+        //         if (temparr === ardup[j]) {
+        //             duplicate.push(arr[j])
+        //         }
+        //     }
+        // }
+        // //console.log(d);
+        // console.log(duplicate);
+    </script>
+
+</body>
+
+</html>

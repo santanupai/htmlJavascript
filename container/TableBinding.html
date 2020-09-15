@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataBinding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        table,
+        td,
+        th {
+            border: 1px solid gray;
+        }
+        
+        .li {
+            margin-left: 6%;
+            color: green;
+            font-size: 18px;
+        }
+        
+        select {
+            width: 150px;
+            height: 30px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="showData">
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Country</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody id="tblData"></tbody>
+        </table>
+    </div>
+    <div>
+        <div id=chklist></div>
+        <ol id="ulyear">
+        </ol>
+        <ul id="sortUl">
+        </ul>
+    </div>
+
+    <div>
+        <select id="ddl" onchange="showValue()">
+        </select>
+        <input type="text" id="month" />
+    </div>
+
+    <div id="selectedYear"></div>
+
+    <script>
+        var url = "../js/dada.json";
+        var str = "";
+        fetch(this.url).then(
+            res => {
+                res.json().then(
+                    function(data) {
+                        data.map(element => {
+                            str += `<tr>`;
+                            str += `<td>${element.name}</td>`;
+                            str += `<td>${element.address}</td>`;
+                            str += `<td>${element.phone}</td>`;
+                            str += `<td>${element.email}</td>`;
+                            str += `</tr>`;
+                            document.getElementById("showData").innerHTML = str;
+                            //console.log(str);
+                        });
+                    }
+                ).catch(function() {
+                    //console.log(str);
+                })
+            }
+        )
+
+
+
+        var jsonObj = [{
+            name: "A",
+            class: "A"
+        }, {
+            name: "B",
+            class: "A1"
+        }, {
+            name: "C",
+            class: "A2"
+        }];
+
+
+        // binding data by for loop
+        // for (let i = 0; i < jsonObj.length; i++) {
+        //     dataList.push(`<tr>
+        //     <td>${jsonObj[i].name}</td>
+        //     <td>${jsonObj[i].class}</td>
+        //     </tr>`);
+        // }
+        // document.getElementById("showData").innerHTML = dataList;
+
+        // binding data by for in loop
+        // var str;
+        // for (let data in jsonObj) {
+        //     str += `<tr>`;
+        //     str += `<td>${jsonObj[data].name}</td>`;
+        //     str += `<td>${jsonObj[data].class}</td>`;
+        //     str += `</tr>`;
+        // }
+        // document.getElementById("showData").innerHTML = str;
+
+        //binding data by for of loop
+        // var str;
+        // for (let obj of jsonObj) {
+        //     str += `<tr>`;
+        //     str += `<td>${obj.name}</td>`;
+        //     str += `<td>${obj.class}</td>`;
+        //     str += `</tr>`;
+        // }
+        // document.getElementById("showData").innerHTML = str;
+
+        const year = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        const bindMonth = year.map((ye, i) => {
+            return ye;
+        });
+
+        var val = bindMonth;
+        //console.log(val);
+
+        var ddl = document.getElementById("ddl");
+
+        for (let i = 0; i < val.length; i++) {
+            ddl.options.add(new Option(val[i], val[i]));
+        }
+
+        var chkboxeList = document.getElementById("chklist");
+
+
+        for (let i = 0; i < bindMonth.length; i++) {
+            var checkbox = document.createElement("input");
+            var chklabel = document.createElement("label");
+            checkbox.type = "checkbox";
+            checkbox.value = bindMonth[i];
+            checkbox.id = bindMonth[i];
+            checkbox.name = bindMonth[i];
+            chkboxeList.appendChild(checkbox);
+            chkboxeList.appendChild(chklabel);
+            chklabel.appendChild(document.createTextNode(bindMonth[i]));
+            checkbox.style.margin = "4px";
+        }
+        var chkgroup = chkboxeList = document.getElementById("chklist");
+        var chkId = [];
+        chkId = chkgroup.children;
+        for (let i = 0; i < chkId[i].length; i++) {
+
+        }
+        // function showValue(option) {
+        //     var selectedvalue = ddl.options[ddl.selectedIndex].value;
+        //     alert(selectedvalue);
+        //     console.log(selectedvalue);
+        // }
+
+        var month = document.querySelector("#month");
+
+        const showValue = (option) => {
+            var selectedvalue = ddl.options[ddl.selectedIndex].value;
+            month.value = selectedvalue;
+        }
+
+        var filterYear = year.filter(function(y, index) {
+            return index;
+        });
+        const num = [1, 4, 5, 2, 3, 7, 6, 9, 8];
+        console.log(num);
+        const sortMonth = num.sort(function(a, b) {
+            return a - b;
+        });
+        var mo = "";
+        for (let i = 0; i < num.length; i++) {
+            mo += `<li>${num[i]} </li>`
+        }
+        document.getElementById("sortUl").innerHTML = mo;
+        console.log(sortMonth);
+
+
+        //ES5 filter
+        //var ye = filterYear.split('');
+        // document.getElementById("selectedYear").innerHTML = 'Month is : ' + filterYear;
+
+        //ES6 arrow function, filter
+        // const filterMonth = year.filter(month => month != 'Jan');
+        // document.getElementById("selectedYear").innerHTML = 'Month is : ' + filterMonth;
+
+        let stryear = "";
+        //console.log(year[0]);
+        for (let i = 0; i < year.length; i++) {
+            stryear += "<li class=li>" + year[i] + "</li>";
+        }
+        document.getElementById("ulyear").innerHTML = stryear;
+        //var ul = document.getElementById("year");
+        //create li
+        // var li = document.createElement("li");
+        // for (let i = 0; i < year.length; i++) {
+        //     //var litextnode = document.innerHTML(year[i]);
+        //     li.innerText(year[i]);
+        // }
+        // ulyear.appendChild(li);
+        // console.log(ulyear);
+        const companies = [{
+            companyName: "TCS",
+            country: "India",
+            position: "Software Engineer",
+            salary: "1000000"
+        }, {
+            companyName: "Wipro",
+            country: "India",
+            position: "Software Engineer",
+            salary: "1400000"
+        }, {
+            companyName: "Capgemini",
+            country: "India",
+            position: "Software Architecture",
+            salary: "1300000"
+        }, {
+            companyName: "Facebook",
+            country: "USA",
+            position: "Software Programmer",
+            salary: "1800000"
+        }, {
+            companyName: "Google",
+            country: "USA",
+            position: "Software Engineer",
+            salary: "1500000"
+        }, {
+            companyName: "TechMahindra",
+            country: "India",
+            position: "Software Testing Engineer",
+            salary: "1100000"
+        }, {
+            companyName: "Reliance",
+            country: "India",
+            position: "Software Testing Engineer",
+            salary: "1200000"
+        }];
+
+        ///Filter
+        //const cname = [];
+        // const nameofCompanies = companies.map(function(company) {
+        //     return company.country;
+        // })
+
+        //console.log(nameofCompanies);
+
+        //filter
+        // const filterCompany = companies.filter(function(company, i) {
+        //         return company.salary >= 1500000;
+        //     })
+        //console.log(filterCompany);
+
+        const tableShowData = companies.filter(function(company, i) {
+            return company.position === 'Software Engineer';
+        })
+
+        for (let data of tableShowData) {
+            var str;
+            str += `<tr>`;
+            str += `<td>${data.companyName}</td>`;
+            str += `<td>${data.country}</td>`;
+            str += `<td>${data.position}</td>`;
+            str += `<td>${data.salary}</td>`;
+        }
+        document.getElementById("tblData").innerHTML = str;
+        console.log(tableShowData);
+
+        // const filtername = (p, c) => companies.filter(function(company, i) {
+        //     return company.position === p && company.country === c;
+        // })
+        //console.log(filtername('Software Engineer', 'India'));
+    </script>
+</body>
+
+</html>

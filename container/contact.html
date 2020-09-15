@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+        </table>
+    </section>
+    <div id="status">User is Offline</div>
+</body>
+
+</html>
+<script>
+    var datacollecton = [];
+
+    fetch("../js/dada.json").then(
+        res => {
+            res.json().then(
+                function(data) {
+                    data.forEach(
+                        function(obj, index) {
+                            datacollecton.push(`
+                    <tr>
+                    <td>${index+1} + ${obj.name}</td>
+                    <td>${index+1} + ${obj.address}</td>
+                    <td>${index+1} + ${obj.phone}</td>
+                    <td>${index+1} + ${obj.email}</td>
+                `);
+                            document.getElementById("data").innerHTML = datacollecton;
+                        });
+                })
+        }
+    )
+
+    function updateOnlineStatus() {
+        document.getElementById("status").innerHTML = "User is Online";
+    }
+
+    function updateOfflineStatus() {
+        document.getElementById("status").innerHTML = "User is Offline";
+    }
+
+
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOfflineStatus);
+</script>
